@@ -41,7 +41,13 @@ class ItemListDataProvider: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return ItemCell()
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
+
+        cell.configCell(with: ToDoItem(title: ""))
+
+        return cell
+        
     }
     
 }
